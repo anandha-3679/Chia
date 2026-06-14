@@ -3,7 +3,7 @@
 Base table provides: id (UUID), email, hashed_password,
 is_active, is_superuser, is_verified.
 
-Profile fields (added in the Profile module): name, goal, diet_type, reminder_time.
+Profile fields (added in the Profile module): name, goal, diet_type.
 goal / diet_type are stored as plain strings; the allowed values are validated
 at the API layer via Enums in app/schemas/user.py.
 """
@@ -21,4 +21,3 @@ class User(SQLAlchemyBaseUserTableUUID, Base):
     name: Mapped[str | None] = mapped_column(String(100), nullable=True)
     goal: Mapped[str | None] = mapped_column(String(50), nullable=True)
     diet_type: Mapped[str | None] = mapped_column(String(50), nullable=True)
-    reminder_time: Mapped[str | None] = mapped_column(String(5), nullable=True)  # "HH:MM"

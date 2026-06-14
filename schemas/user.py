@@ -28,7 +28,6 @@ class UserRead(schemas.BaseUser[uuid.UUID]):
     name: Optional[str] = None
     goal: Optional[Goal] = None
     diet_type: Optional[DietType] = None
-    reminder_time: Optional[str] = None
 
 
 class UserCreate(schemas.BaseUserCreate):
@@ -43,4 +42,3 @@ class UserUpdate(schemas.BaseUserUpdate):
     name: Optional[str] = None
     goal: Optional[Goal] = None
     diet_type: Optional[DietType] = None
-    reminder_time: Optional[str] = None
