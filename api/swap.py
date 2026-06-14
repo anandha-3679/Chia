@@ -6,12 +6,12 @@ Generates a personalized healthier alternative, logs it, and returns it.
 from fastapi import APIRouter, Depends
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from app.core.database import get_db
-from app.models.swap import Swap
-from app.models.user import User
-from app.schemas.swap import SwapRequest, SwapResponse
-from app.services.swap_engine import generate_swap
-from app.users import current_active_user
+from core.database import get_db
+from models.swap import Swap
+from models.user import User
+from schemas.swap import SwapRequest, SwapResponse
+from services.swap_engine import generate_swap
+from users import current_active_user
 
 router = APIRouter(prefix="/swap", tags=["swap"])
 

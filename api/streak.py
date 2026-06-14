@@ -3,11 +3,11 @@
 from fastapi import APIRouter, Depends
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from app.core.database import get_db
-from app.models.user import User
-from app.schemas.streak import StreakRead
-from app.services.streak_engine import get_streak
-from app.users import current_active_user
+from core.database import get_db
+from models.user import User
+from schemas.streak import StreakRead
+from services.streak_engine import get_streak
+from users import current_active_user
 
 router = APIRouter(prefix="/streak", tags=["streak"])
 

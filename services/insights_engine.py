@@ -14,9 +14,9 @@ from pydantic_ai.providers.groq import GroqProvider
 from sqlalchemy import func, select
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from app.core.config import settings
-from app.models.journal import Journal
-from app.schemas.insights import InsightsText, WeeklyInsights
+from core.config import settings
+from models.journal import Journal
+from schemas.insights import InsightsText, WeeklyInsights
 
 # --- AI agent for the friendly summary + tip ---
 _model = GroqModel(

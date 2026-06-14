@@ -5,13 +5,13 @@ from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy import text
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from app.api import auth
-from app.api import insights as insights_api
-from app.api import journal as journal_api
-from app.api import streak as streak_api
-from app.api import swap as swap_api
-from app.core.config import settings
-from app.core.database import get_db
+from api import auth
+from api import insights as insights_api
+from api import journal as journal_api
+from api import streak as streak_api
+from api import swap as swap_api
+from core.config import settings
+from core.database import get_db
 
 # Schema is managed by Alembic migrations (`alembic upgrade head`), not create_all.
 

@@ -4,12 +4,12 @@ from fastapi import APIRouter, Depends, status
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from app.core.database import get_db
-from app.models.journal import Journal
-from app.models.user import User
-from app.schemas.journal import JournalCreate, JournalRead
-from app.services.streak_engine import update_streak_on_log
-from app.users import current_active_user
+from core.database import get_db
+from models.journal import Journal
+from models.user import User
+from schemas.journal import JournalCreate, JournalRead
+from services.streak_engine import update_streak_on_log
+from users import current_active_user
 
 router = APIRouter(prefix="/journal", tags=["journal"])
 

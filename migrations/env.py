@@ -9,18 +9,15 @@ from sqlalchemy.ext.asyncio import create_async_engine
 
 from alembic import context
 
-# Make `app` importable however alembic is invoked:
-#  - from the backend-repo root, where an `app` package/symlink sits (Render), or
-#  - from the parent dir that contains the backend repo itself as `app` (local dev).
-_here = os.path.dirname(os.path.abspath(__file__))
-sys.path.insert(0, os.path.dirname(_here))               # backend-repo root
-sys.path.insert(0, os.path.dirname(os.path.dirname(_here)))  # its parent
+# Put the backend repo root (parent of migrations/) on the path so the
+# top-level packages (core, models, ...) resolve when alembic runs.
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from app.core.config import settings  # noqa: E402
-from app.core.database import Base  # noqa: E402
+from core.config import settings  # noqa: E402
+from core.database import Base  # noqa: E402
 
 # Import every model so its table registers on Base.metadata for autogenerate.
-from app.models import journal, streak, swap, user  # noqa: E402, F401
+from models import journal, streak, swap, user  # noqa: E402, F401
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.

@@ -3,11 +3,11 @@
 from fastapi import APIRouter, Depends
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from app.core.database import get_db
-from app.models.user import User
-from app.schemas.insights import WeeklyInsights
-from app.services.insights_engine import get_weekly_insights
-from app.users import current_active_user
+from core.database import get_db
+from models.user import User
+from schemas.insights import WeeklyInsights
+from services.insights_engine import get_weekly_insights
+from users import current_active_user
 
 router = APIRouter(prefix="/insights", tags=["insights"])
 

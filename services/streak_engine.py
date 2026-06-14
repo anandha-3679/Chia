@@ -8,8 +8,8 @@ from datetime import date, datetime, timedelta, timezone
 
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from app.models.streak import Streak
-from app.schemas.streak import StreakRead
+from models.streak import Streak
+from schemas.streak import StreakRead
 
 
 def _today() -> date:

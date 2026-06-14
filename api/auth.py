@@ -10,8 +10,8 @@ Endpoints exposed:
 
 from fastapi import APIRouter
 
-from app.schemas.user import UserCreate, UserRead, UserUpdate
-from app.users import auth_backend, fastapi_users
+from schemas.user import UserCreate, UserRead, UserUpdate
+from users import auth_backend, fastapi_users
 
 router = APIRouter()
 

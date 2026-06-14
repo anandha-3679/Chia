@@ -10,8 +10,8 @@ from pydantic_ai.models.groq import GroqModel
 from pydantic_ai.output import PromptedOutput
 from pydantic_ai.providers.groq import GroqProvider
 
-from app.core.config import settings
-from app.schemas.swap import SwapResponse
+from core.config import settings
+from schemas.swap import SwapResponse
 
 SYSTEM_PROMPT = """\
 You are Chia, a practical and friendly nutrition coach.
