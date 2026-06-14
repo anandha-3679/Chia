@@ -17,10 +17,17 @@ from core.database import get_db
 
 app = FastAPI(title=settings.app_name, version=settings.app_version)
 
-# Allow the Next.js frontend (localhost:3000) to call the API from the browser.
+# Allow the Next.js frontend to call the API from the browser.
+# - localhost for local dev
+# - the production Vercel domain
+# - any *.vercel.app preview deployment
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],
+    allow_origins=[
+        "http://localhost:3000",
+        "https://chia-nutrition.vercel.app",
+    ],
+    allow_origin_regex=r"https://.*\.vercel\.app",
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
