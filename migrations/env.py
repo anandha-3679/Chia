@@ -9,8 +9,12 @@ from sqlalchemy.ext.asyncio import create_async_engine
 
 from alembic import context
 
-# Make the project root importable so `app...` resolves when alembic runs.
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+# Make `app` importable however alembic is invoked:
+#  - from the backend-repo root, where an `app` package/symlink sits (Render), or
+#  - from the parent dir that contains the backend repo itself as `app` (local dev).
+_here = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, os.path.dirname(_here))               # backend-repo root
+sys.path.insert(0, os.path.dirname(os.path.dirname(_here)))  # its parent
 
 from app.core.config import settings  # noqa: E402
 from app.core.database import Base  # noqa: E402
